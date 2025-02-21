@@ -14,7 +14,7 @@
 #
 ###########################################################################
 
-SUMMARY_TAG="^\\\"SUMMARY\\\"$"
+SUMMARY_TAG="^Host Statistics (Percentage of Controls Passed per Host)$"
 ASSETS_TAG="^ASSET TAG$"
 RESULTS_TAG="^\"RESULTS\"$"
 
