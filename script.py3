@@ -11,7 +11,7 @@ def split_file(input_filename):
 
 		# Expressions régulières pour détecter les sections avec correspondance exacte
 		patterns = {
-			"summary": re.compile(r"^\"SUMMARY\"\s*$"),
+			"summary": re.compile(r"^Host Statistics (Percentage of Controls Passed per Host)\s*$"),
 			"assets": re.compile(r"^ASSET TAG\s*$"),
 			"results": re.compile(r"^\"RESULTS\"\s*$")
 		}
