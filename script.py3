@@ -12,7 +12,6 @@ def split_file(input_filename, output_folder):
 
             # Expressions régulières pour détecter les sections avec correspondance exacte
             patterns = {
-                #"summary": re.compile(r"^Host Statistics (Percentage of Controls Passed per Host)\s*$"),
                 "summary": re.compile(r"^Host Statistics \(Percentage of Controls Passed per Host\)$"),
                 "assets": re.compile(r"^ASSET TAGS$"),
                 "results": re.compile(r"^RESULTS$")
@@ -50,9 +49,7 @@ def split_file(input_filename, output_folder):
 # Vérification et exécution
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage : python script.py input_file.csv output_folder")
+        print("Usage : python " + sys.argv[0] + " input_file.csv output_folder")
         sys.exit(1)
 
-    filename = sys.argv[1]
-    output_folder = sys.argv[2]
-    split_file(filename, output_folder)
+    split_file(sys.argv[1], sys.argv[2])
