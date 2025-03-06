@@ -12,7 +12,6 @@ def split_file(input_filename, output_folder):
 
             # Expressions régulières pour détecter les sections avec correspondance exacte
             patterns = {
-                #"summary": re.compile(r"^Host Statistics (Percentage of Controls Passed per Host)\s*$"),
                 "summary": re.compile(r"^Host Statistics \(Percentage of Controls Passed per Host\)$"),
                 "assets": re.compile(r"^ASSET TAGS$"),
                 "results": re.compile(r"^RESULTS$")
