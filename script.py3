@@ -3,9 +3,7 @@
 import sys
 import re
 
-output_folder = "<INSERT YOUR FOLDER HERE>"
-
-def split_file(input_filename):
+def split_file(input_filename, output_folder):
     try:
         with open(input_filename, "r", encoding="utf-8") as file:
             sections = {"summary": [], "assets": [], "results": []}
@@ -14,6 +12,7 @@ def split_file(input_filename):
 
             # Expressions régulières pour détecter les sections avec correspondance exacte
             patterns = {
+                #"summary": re.compile(r"^Host Statistics (Percentage of Controls Passed per Host)\s*$"),
                 "summary": re.compile(r"^Host Statistics \(Percentage of Controls Passed per Host\)$"),
                 "assets": re.compile(r"^ASSET TAGS$"),
                 "results": re.compile(r"^RESULTS$")
@@ -51,9 +50,10 @@ def split_file(input_filename):
 
 # Vérification et exécution
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage : python script.py fichier.txt")
+    if len(sys.argv) < 3:
+        print("Usage : python script.py input_file.csv output_folder")
         sys.exit(1)
 
     filename = sys.argv[1]
-    split_file(filename)
+    output_folder = sys.argv[2]
+    split_file(filename, output_folder)
