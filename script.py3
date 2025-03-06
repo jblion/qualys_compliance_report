@@ -24,7 +24,6 @@ def split_file(input_filename, output_folder):
                 for section, regex in patterns.items():
                     if regex.match(stripped_line):
                         current_section = section
-                        print(section)
                         skip_this_line=1
                         break  # On sort de la boucle dès qu'on trouve une correspondance
                     else:
@@ -37,7 +36,7 @@ def split_file(input_filename, output_folder):
         # Écriture des sections dans des fichiers séparés
         for section, lines in sections.items():
             if lines:  # Vérifie qu'il y a bien du contenu avant d'écrire
-                output_filename = f"{section.replace(' ', '_')}.txt"
+                output_filename = f"{section.replace(' ', '_')}.csv"
                 with open(output_folder + "/" + output_filename, "w", encoding="utf-8") as out_file:
                     out_file.writelines(lines)
                 print(f"File generated : {output_filename}")
