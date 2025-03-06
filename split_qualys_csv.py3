@@ -12,6 +12,7 @@ def split_file(input_filename, output_folder):
 
             # Expressions régulières pour détecter les sections avec correspondance exacte
             patterns = {
+                #"summary": re.compile(r"^Host Statistics (Percentage of Controls Passed per Host)\s*$"),
                 "summary": re.compile(r"^Host Statistics \(Percentage of Controls Passed per Host\)$"),
                 "assets": re.compile(r"^ASSET TAGS$"),
                 "results": re.compile(r"^RESULTS$")
@@ -36,7 +37,7 @@ def split_file(input_filename, output_folder):
         for section, lines in sections.items():
             if lines:  # Vérifie qu'il y a bien du contenu avant d'écrire
                 output_filename = f"{section.replace(' ', '_')}.csv"
-                with open(output_folder + "/" + output_filename, "w", encoding="utf-8") as out_file:
+                with open(os.path.join(output_folder,output_filename), "w", encoding="utf-8") as out_file:
                     out_file.writelines(lines)
                 print(f"File generated : {output_filename}")
     except FileNotFoundError:
