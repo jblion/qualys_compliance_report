@@ -38,8 +38,6 @@ def split_file(input_filename, output_file):
                 if(current_section and skip_this_line == False):
                     current_ws.append(row)
                     
-        #print("Removing default sheet")
-        #wb.remove(wb["Sheet"])
         print("Saving output file: " + output_file)
         wb.save(output_file)
 
