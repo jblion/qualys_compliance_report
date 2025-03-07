@@ -4,6 +4,7 @@ import os
 import sys
 import re
 import csv
+import importlib.util
 from openpyxl import Workbook
 
 #workaround because big csv fields
@@ -37,10 +38,9 @@ def split_file(input_filename, output_file):
                         
                 if(current_section and skip_this_line == False):
                     current_ws.append(row)
-                    
+        
         print("Saving output file: " + output_file)
         wb.save(output_file)
-
 
     except FileNotFoundError:
         print(f"Error: The file '{input_filename}' was not found.")
@@ -55,4 +55,8 @@ if __name__ == "__main__":
         print("Usage : python " + sys.argv[0] + " input_file.csv output_file")
         sys.exit(1)
 
+    spec = importlib.util.find_spec("lxml")
+    if spec is None:
+        print("You should install lxml package ! Or the script will be slow and eats lot of memory")
+        
     split_file(sys.argv[1], sys.argv[2])
