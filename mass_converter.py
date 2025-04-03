@@ -11,7 +11,7 @@ from datetime import datetime
 python_binary="python/python.exe"
 
 def list_zip_files(input_folder):
-    return glob.glob(os.path.join(input_folder, "Volvo_CIS_*.zip"))
+    return glob.glob(os.path.join(input_folder, "*.zip"))
 
 def unzip_file(zip_path, temp_folder):
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
